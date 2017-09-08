@@ -20,7 +20,7 @@
         <a class="nav-link" href="#">Climate</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Favorites</a>
+        <a class="nav-link disabled" (click)="getFavoritesList()">Favorites</a>
       </li>
     </ul>
     
@@ -39,6 +39,23 @@
 
         </div>
  </div> 
+
+ <div class="row">
+   <div *ngIf="list">
+     <div *ngFor="let lists of list">
+       <ul>
+         <li>{{lists.city}}</li> 
+         <li>{{lists.date}}</li>
+         <li>{{lists.maxtemp}}</li>
+         <li>{{lists.mintemp}}</li>
+
+         <button type="button" class="btn btn-outline-success">Edit</button>
+         <button type="button" class="btn btn-outline-success">Delete</button>
+         <!-- <button type="button" class="btn btn-outline-success" (click)="showFavAll()">Details</button> -->
+       </ul>
+     </div>
+   </div>
+ </div>
 
    <!-- <app-channel [results]='results'></app-channel> --> 
 

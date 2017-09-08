@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map';
 export class WeatherSearchComponent {
 
   results: Object;
+  list:any = [];
 
   @Output() receive= new EventEmitter<any>();
   
@@ -30,6 +31,15 @@ export class WeatherSearchComponent {
         console.log(this.results)
         this.receive.emit(this.results)
       });
+  }
+
+  getFavoritesList(){
+
+    this.weatherSearchService.showFavList()
+        .subscribe((data)=>{
+          this.list=data;
+        })
+
   }
 
 
